@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Canino Paraíso Perruno - Hospedaje de Lujo para tu Mejor Amigo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(102, 126, 234, 0.7), rgba(118, 75, 162, 0.7)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f0f0" width="1200" height="600"/><text x="600" y="300" font-size="100" text-anchor="middle" fill="%23ddd" font-family="Arial">🐕</text></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        .services {
+            padding: 4rem 0;
+            background: #f9f9f9;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .gallery {
+            padding: 4rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            aspect-ratio: 4/3;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .facilities {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .facilities-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .facility-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .facility-item h3 {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pricing {
+            padding: 4rem 0;
+            background: #f9f9f9;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #667eea;
+            transform: scale(1.05);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #667eea;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .price-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .price-features li:before {
+            content: "✓ ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .contact {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .contact-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>🐾 Hotel Canino Paraíso Perruno 🐾</h1>
+                <p class="tagline">El hogar lejos de casa para tu mejor amigo</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>¿Necesitas viajar? ¿Tu perro necesita compañía?</h2>
+            <p style="font-size: 1.2rem; margin: 1rem 0;">Déjalo en manos expertas. Un lugar cómodo, seguro y lleno de amor</p>
+            <a href="#contact" class="cta-button">¡Reserva Ahora!</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Hospedaje Confortable</h3>
+                    <p>Habitaciones espaciosas y climatizadas con camas acogedoras. Tu perro dormirá como en casa, con todo el confort que merece.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚿</div>
+                    <h3>Baño y Aseo</h3>
+                    <p>Servicio completo de baño con productos premium, secado profesional y cepillado. Tu mascota regresará limpia y reluciente.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🦴</div>
+                    <h3>Alimentación Personalizada</h3>
+                    <p>Respetamos la dieta de tu perro. Trae su comida habitual o elige nuestro menú balanceado preparado con ingredientes de calidad.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌳</div>
+                    <h3>Paseos Diarios</h3>
+                    <p>Múltiples paseos al día en áreas verdes seguras. Ejercicio, socialización y diversión garantizados bajo supervisión constante.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎾</div>
+                    <h3>Tiempo de Juego</h3>
+                    <p>Sesiones de juego en grupos o individuales según el temperamento de tu perro. Diversión y ejercicio mental incluidos.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📹</div>
+                    <h3>Actualizaciones Diarias</h3>
+                    <p>Recibe fotos y videos de tu mascota cada día. Mantente conectado y tranquilo sabiendo que está feliz.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💊</div>
+                    <h3>Administración de Medicamentos</h3>
+                    <p>Si tu perro necesita medicación, nuestro personal capacitado se encargará de administrarla en los horarios indicados.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">❤️</div>
+                    <h3>Atención 24/7</h3>
+                    <p>Personal capacitado las 24 horas del día. Amor, cuidado y atención cuando tu perro lo necesite.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title">Nuestras Instalaciones</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">🏡</div>
+                <div class="gallery-item">🛏️</div>
+                <div class="gallery-item">🌲</div>
+                <div class="gallery-item">🎪</div>
+                <div class="gallery-item">🏊</div>
+                <div class="gallery-item">🎯</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="facilities">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">¿Por Qué Elegirnos?</h2>
+            <div class="facilities-list">
+                <div class="facility-item">
+                    <h3>🏆 Espacios Amplios</h3>
+                    <p>Áreas de juego de más de 500m² con césped natural, sombra y zonas de descanso.</p>
+                </div>
+                <div class="facility-item">
+                    <h3>🌡️ Climatización</h3>
+                    <p>Todas nuestras áreas están climatizadas para el confort de tu mascota en cualquier época del año.</p>
+                </div>
+                <div class="facility-item">
+                    <h3>👨‍⚕️ Personal Calificado</h3>
+                    <p>Equipo con formación en comportamiento canino y primeros auxilios veterinarios.</p>
+                </div>
+                <div class="facility-item">
+                    <h3>🔒 Seguridad Total</h3>
+                    <p>Instalaciones con cercos seguros, cámaras de vigilancia y protocolos de seguridad estrictos.</p>
+                </div>
+                <div class="facility-item">
+                    <h3>🧼 Higiene Impecable</h3>
+                    <p>Limpieza y desinfección diaria de todas las áreas con productos pet-friendly.</p>
+                </div>
+                <div class="facility-item">
+                    <h3>🎵 Ambiente Relajante</h3>
+                    <p>Música suave y ambiente tranquilo para reducir el estrés de tu mascota.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Nuestras Tarifas</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Día Completo</h3>
+                    <div class="price">$25</div>
+                    <ul class="price-features">
+                        <li>Hospedaje por 24 horas</li>
+                        <li>Alimentación (tu comida)</li>
+                        <li>3 paseos diarios</li>
+                        <li>Tiempo de juego</li>
+                        <li>1 foto actualización</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Reservar</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>⭐ Paquete Semanal</h3>
+                    <div class="price">$150</div>
+                    <p style="color: #ff6b6b; font-weight: bold;">¡Ahorra $25!</p>
+                    <ul class="price-features">
+                        <li>7 días de hospedaje</li>
+                        <li>Alimentación completa</li>
+                        <li>Paseos ilimitados</li>
+                        <li>1 baño incluido</li>
+                        <li>Fotos y videos diarios</li>
+                        <li>Check-up básico</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">¡Mejor Oferta!</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Mensual</h3>
+                    <div class="price">$500</div>
+                    <p style="color: #4caf50; font-weight: bold;">¡Ahorra $250!</p>
+                    <ul class="price-features">
+                        <li>30 días de hospedaje</li>
+                        <li>Todo incluido</li>
+                        <li>Baños semanales</li>
+                        <li>Corte de uñas</li>
+                        <li>Videos diarios</li>
+                        <li>Atención preferencial</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Reservar</a>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; color: #666;">
+                * Descuentos especiales para múltiples mascotas y estadías prolongadas<br>
+                * Servicios adicionales como spa canino y entrenamiento disponibles
+            </p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
+                ¿Tienes preguntas? ¿Listo para reservar? ¡Estamos aquí para ayudarte!
+            </p>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="icon">📞</div>
+                    <h3>Teléfono</h3>
+                    <p style="font-size: 1.2rem; color: #667eea;">+1 (555) 123-4567</p>
+                    <p>Lunes a Domingo<br>8:00 AM - 8:00 PM</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="icon">📧</div>
+                    <h3>Email</h3>
+                    <p style="font-size: 1.2rem; color: #667eea;">info@paraisoperruno.com</p>
+                    <p>Respuesta en 24 horas</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="icon">📍</div>
+                    <h3>Ubicación</h3>
+                    <p style="font-size: 1.2rem; color: #667eea;">Calle Principal 123</p>
+                    <p>Ciudad, País<br>Código Postal</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="icon">🌐</div>
+                    <h3>Redes Sociales</h3>
+                    <p>Síguenos en:<br>
+                    Facebook | Instagram | Twitter</p>
+                    <p>@paraisoperruno</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: #f0f8ff; border-radius: 15px;">
+                <h3 style="color: #667eea; margin-bottom: 1rem;">📋 Requisitos para el Hospedaje</h3>
+                <p style="line-height: 2;">
+                    ✓ Vacunas al día (copia de cartilla)<br>
+                    ✓ Desparasitación vigente<br>
+                    ✓ Socializado con otros perros (evaluación previa gratuita)<br>
+                    ✓ Información médica y de contacto completa
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Hotel Canino Paraíso Perruno. Todos los derechos reservados.</p>
+            <p style="margin-top: 1rem;">Donde cada cola cuenta una historia feliz 🐕💕</p>
+        </div>
+    </footer>
+</body>
+</html>
